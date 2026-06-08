@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import {
   Shield, LayoutDashboard, ClipboardList, AlertOctagon,
-  BookOpen, BarChart2, ChevronLeft, ChevronRight, FolderOpen,
+  BookOpen, BarChart2, ChevronLeft, ChevronRight, FolderOpen, Lightbulb,
 } from 'lucide-react';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import Dashboard from './pages/Dashboard';
 import Assessment from './pages/Assessment';
 import AssessmentList from './pages/AssessmentList';
+import Recommendations from './pages/Recommendations';
 import Incidents from './pages/Incidents';
 import Playbooks from './pages/Playbooks';
 import Reports from './pages/Reports';
@@ -19,12 +20,13 @@ function nanoid() {
 }
 
 const NAV = [
-  { key: 'assessments', label: 'Assessments',    icon: FolderOpen },
-  { key: 'dashboard',   label: 'Dashboard',       icon: LayoutDashboard },
-  { key: 'assessment',  label: 'SIM3 Assessment', icon: ClipboardList },
-  { key: 'incidents',   label: 'Incidents',        icon: AlertOctagon },
-  { key: 'playbooks',   label: 'Playbooks',        icon: BookOpen },
-  { key: 'reports',     label: 'Reports',          icon: BarChart2 },
+  { key: 'assessments',      label: 'Assessments',      icon: FolderOpen },
+  { key: 'dashboard',        label: 'Dashboard',        icon: LayoutDashboard },
+  { key: 'assessment',       label: 'SIM3 Assessment',  icon: ClipboardList },
+  { key: 'recommendations',  label: 'Recommendations',  icon: Lightbulb },
+  { key: 'incidents',        label: 'Incidents',        icon: AlertOctagon },
+  { key: 'playbooks',        label: 'Playbooks',        icon: BookOpen },
+  { key: 'reports',          label: 'Reports',          icon: BarChart2 },
 ];
 
 export default function App() {
@@ -113,8 +115,19 @@ export default function App() {
             onScoreChange={handleScoreChange}
             onStatusChange={handleStatusChange}
             onBack={() => setPage('assessments')}
+            onViewRecommendations={() => setPage('recommendations')}
           />
         );
+      case 'recommendations':
+        if (!activeRecord) return (
+          <AssessmentList
+            assessments={assessments}
+            onCreate={handleCreate}
+            onOpen={handleOpen}
+            onDelete={handleDelete}
+          />
+        );
+        return <Recommendations record={activeRecord} onNavigate={setPage} />;
       case 'incidents':
         return <Incidents incidents={incidents} setIncidents={setIncidents} />;
       case 'playbooks':

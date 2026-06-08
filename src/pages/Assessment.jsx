@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { ChevronDown, ChevronUp, Info, ArrowLeft, Lock, RotateCcw } from 'lucide-react';
+import { ChevronDown, ChevronUp, Info, ArrowLeft, Lock, RotateCcw, Lightbulb } from 'lucide-react';
 import { SIM3_PARAMETERS, GROUPS, MATURITY_LEVELS, computeScores, maturityLabel } from '../data/sim3';
 
 const STATUS_CONFIG = {
@@ -75,7 +75,7 @@ function ParameterCard({ param, score, onChange, readonly }) {
   );
 }
 
-export default function Assessment({ record, onScoreChange, onStatusChange, onBack }) {
+export default function Assessment({ record, onScoreChange, onStatusChange, onBack, onViewRecommendations }) {
   const [activeGroup, setActiveGroup] = useState('Organisation');
 
   const { companyName, auditorName, status, assessment, createdAt, updatedAt } = record;
@@ -116,6 +116,9 @@ export default function Assessment({ record, onScoreChange, onStatusChange, onBa
             {statusCfg.label}
           </span>
           <div className="asm-status-actions">
+            <button className="btn-ghost btn-sm" onClick={onViewRecommendations}>
+              <Lightbulb size={13} /> Recommendations
+            </button>
             {status === 'in-progress' && (
               <>
                 <button className="btn-ghost btn-sm" onClick={() => onStatusChange('implementing')}>

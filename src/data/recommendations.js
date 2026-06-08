@@ -1,0 +1,280 @@
+// Next-step actions indexed by parameter ID.
+// Each array has 4 entries: what to do at L0, L1, L2, L3 to advance to the next level.
+// (L4 = fully mature — no further action needed.)
+export const NEXT_STEPS = {
+  O1: [
+    'Draft a constituency policy document defining who the CSIRT serves (sector, geography, size) and obtain management approval.',
+    'Operationalise the constituency definition by documenting the review process, responsible roles, and communication steps.',
+    'Create detailed procedures for scope-change requests, stakeholder notifications, and public constituency updates.',
+    'Establish metrics to track constituency satisfaction and schedule annual formal audits of constituency alignment.',
+  ],
+  O2: [
+    'Draft a mission statement describing the CSIRT\'s purpose and goals; submit for senior management approval and publish it.',
+    'Formalise an annual review schedule and approval workflow for the mission statement.',
+    'Create procedures for mission updates, stakeholder communication, and public republication after changes.',
+    'Measure mission alignment against actual operations; conduct annual external review of mission relevance.',
+  ],
+  O3: [
+    'Compile and publish a service catalogue listing all reactive, proactive, and value-added services the CSIRT offers.',
+    'Define service delivery processes for each listed service, including intake, handling, and completion criteria.',
+    'Create detailed service procedures with SLAs, escalation paths, and named responsible roles for every service.',
+    'Track service delivery KPIs (response time, quality, coverage) and conduct annual service portfolio reviews.',
+  ],
+  O4: [
+    'Document current funding sources, approved budget amounts, and the approval authority chain in a budget document.',
+    'Establish an annual budget review process with defined steps for budget requests and management approval.',
+    'Create procedures for multi-year budget planning, cost tracking against actuals, and funding contingency scenarios.',
+    'Track budget utilisation vs. planned spend monthly; conduct annual financial audits of CSIRT operations.',
+  ],
+  O5: [
+    'Obtain a signed authority document from senior management granting the CSIRT mandate to act on security incidents.',
+    'Define the process for exercising and escalating authority, including approval steps for major remediation actions.',
+    'Create procedures for authority delegation, cross-boundary coordination, and handling disputes over authority scope.',
+    'Audit authority usage annually; measure cases where authority was exercised and the outcomes achieved.',
+  ],
+  O6: [
+    'Publish an organisational chart showing where the CSIRT sits and its direct reporting lines to senior management.',
+    'Define the internal and external reporting process including escalation paths and communication schedules.',
+    'Create procedures for escalation triggers, senior management briefings, and cross-departmental coordination.',
+    'Measure escalation frequency and response times; review reporting structure effectiveness annually.',
+  ],
+  O7: [
+    'Draft rules of procedure, a code of conduct, and operational security requirements; have staff sign them.',
+    'Define the process for enforcing rules, handling violations, and keeping procedures current as regulations change.',
+    'Create detailed onboarding and annual refresher procedures for rules adherence, ethics incidents, and regulatory updates.',
+    'Conduct annual compliance audits of staff adherence to rules; formally track and report on policy violations.',
+  ],
+  O8: [
+    'Identify applicable laws (data protection, cybercrime statutes, cross-border) and document the CSIRT\'s legal boundaries.',
+    'Define a process for monitoring legal changes and updating CSIRT practices to remain compliant.',
+    'Create procedures for cross-border incident coordination, legal counsel engagement, and forensic evidence handling.',
+    'Schedule annual legal reviews with counsel; track regulatory findings and legal incident outcomes.',
+  ],
+  O9: [
+    'Draft a privacy policy covering how personal data is collected, handled, and retained during incident response, aligned to applicable law.',
+    'Define the process for applying the privacy policy, including data minimisation steps and breach notification procedures.',
+    'Create step-by-step procedures for data handling at each incident phase, subject rights requests, and policy exceptions.',
+    'Conduct annual privacy audits; track data-handling compliance metrics and subject access request response times.',
+  ],
+  O10: [
+    'Adopt TLP (Traffic Light Protocol) or an equivalent classification scheme and document its application to all incident communications.',
+    'Define the process for classifying incoming information, reclassifying data when context changes, and enforcing labels.',
+    'Create detailed procedures for classifying artefacts, sharing information under each TLP level, and handling misclassification.',
+    'Audit classification compliance quarterly; measure the percentage of communications correctly labelled.',
+  ],
+  O11: [
+    'Create a risk register covering key operational risks to the CSIRT (staff, tools, continuity) with documented mitigations.',
+    'Define a risk management process covering identification, assessment, treatment selection, and escalation.',
+    'Create procedures for business continuity activation, risk owner accountability, and contingency scenario testing.',
+    'Review the risk register quarterly; measure risk exposure trends and business continuity plan effectiveness.',
+  ],
+
+  H1: [
+    'Create written job descriptions for all CSIRT roles specifying required competencies, qualifications, and responsibilities.',
+    'Define a structured hiring process with screening criteria, interview stages, and formal selection decisions.',
+    'Create interview guides, competency scoring rubrics, and onboarding checklists for each role.',
+    'Track time-to-fill, quality-of-hire, and 90-day retention; review selection process effectiveness annually.',
+  ],
+  H2: [
+    'Produce an annual training plan for each CSIRT role covering technical, procedural, and soft-skills development.',
+    'Define a process for identifying individual training needs, allocating budget, and tracking completion.',
+    'Create procedures for training approval, delivery logistics, post-training competency assessment, and record-keeping.',
+    'Measure training completion rates and competency improvements; conduct annual programme effectiveness reviews.',
+  ],
+  H3: [
+    'Subscribe to at least two threat-intelligence feeds and establish a regular internal briefing cadence for CSIRT staff.',
+    'Define the process for reviewing threat intel, escalating critical findings, and distributing awareness updates.',
+    'Create procedures for intel triage, internal briefing delivery, and tracking awareness coverage per staff member.',
+    'Track intel timeliness and staff awareness scores; measure reduction in repeat incidents from known threat patterns.',
+  ],
+  H4: [
+    'Document a background check policy specifying which checks are required based on each role\'s access level.',
+    'Define the process for initiating, tracking, and resolving background checks as part of the onboarding workflow.',
+    'Create procedures for periodic re-checks, handling adverse findings, and maintaining compliant check records.',
+    'Audit background check compliance annually; measure percentage of staff with current, complete checks on file.',
+  ],
+  H5: [
+    'Create a skills matrix mapping required competencies across all CSIRT roles to current staff proficiency levels.',
+    'Define a gap-analysis process using the skills matrix and produce a remediation plan to address shortfalls.',
+    'Create procedures for updating the matrix, commissioning targeted training, and tracking gap-closure progress.',
+    'Review skills gaps quarterly; measure time-to-close capability gaps and overall capability coverage trends.',
+  ],
+  H6: [
+    'Establish a formal on-call rota, define working hours, and document basic performance expectations for all staff.',
+    'Define processes for performance reviews, workload monitoring, and on-call rotation management.',
+    'Create procedures for burn-out prevention checks, succession planning, and handling performance concerns.',
+    'Track staff satisfaction, on-call burden metrics, and attrition rates; conduct annual team health reviews.',
+  ],
+  H7: [
+    'Document named escalation contacts and define the criteria for escalating incidents beyond the CSIRT\'s authority.',
+    'Define the escalation process including trigger conditions, handoff steps, and communication requirements.',
+    'Create escalation playbooks for specific scenarios: major incident, media involvement, legal action, and crisis.',
+    'Track escalation frequency, response times, and outcomes; review and update escalation paths annually.',
+  ],
+  H8: [
+    'Join at least one CSIRT community (FIRST, TF-CSIRT, or national network) and maintain an active contact list.',
+    'Define a process for maintaining trusted partner relationships, onboarding new contacts, and scheduling regular outreach.',
+    'Create procedures for participating in bilateral trust groups, securely exchanging contact data, and contributing to the community.',
+    'Track community engagement metrics (meetings attended, intelligence shared); review network coverage and value annually.',
+  ],
+
+  T1: [
+    'Deploy email encryption (PGP or S/MIME), publish public keys, and establish at least one encrypted messaging channel.',
+    'Define the process for selecting and using secure channels at each classification level and for different partner types.',
+    'Create procedures for key management, channel selection based on incident sensitivity, and onboarding external partners.',
+    'Audit key validity and channel adoption quarterly; measure the percentage of sensitive communications using encryption.',
+  ],
+  T2: [
+    'Enable full-disk encryption and encrypted file shares on all systems that store incident data or artefacts.',
+    'Define the key management process, backup encryption policy, and access control procedures for encrypted storage.',
+    'Create procedures for secure data disposal, periodic storage audits, and handling encryption key loss or compromise.',
+    'Audit encryption coverage quarterly; measure the percentage of data at rest correctly encrypted.',
+  ],
+  T3: [
+    'Deploy a case management system and begin logging all incidents with unique IDs, timestamps, and basic metadata.',
+    'Define the process for case creation, updates, assignment, and closure within the tracking system.',
+    'Create procedures for maintaining audit trails, tagging cases, linking related incidents, and long-term archiving.',
+    'Track system adoption and data completeness metrics; conduct monthly quality audits of case records.',
+  ],
+  T4: [
+    'Adopt a classification taxonomy (eCSIRT.net or MISP) and define severity levels; apply consistently to all new cases.',
+    'Define the classification process: who classifies, within what timeframe, and how reclassifications are handled.',
+    'Create classification decision trees, worked examples, and a quality-check step in the triage workflow.',
+    'Audit classification accuracy monthly; track consistency of severity assignments across analysts over time.',
+  ],
+  T5: [
+    'Publish at least one reporting channel (email alias, web form, or phone) with clear submission instructions for the constituency.',
+    'Define the intake process for each channel including acknowledgement SLA timers and initial triage handoff.',
+    'Create procedures for channel monitoring, after-hours intake coverage, and handling duplicate or malformed reports.',
+    'Track reporting channel uptime, acknowledgement SLA compliance rates, and constituency usage trends monthly.',
+  ],
+  T6: [
+    'Subscribe to CVE/NVD feeds and establish a basic vulnerability tracker for assets within the constituency.',
+    'Define the process for ingesting vulnerability data, assigning remediation owners, and tracking to closure.',
+    'Create procedures for vulnerability triage, CVSS scoring, patch prioritisation, and exception management.',
+    'Track mean time to remediate by severity level; audit vulnerability database completeness monthly.',
+  ],
+  T7: [
+    'Deploy a sandboxed analysis environment and document basic chain-of-custody requirements for digital evidence.',
+    'Define the artefact intake, analysis, storage, and controlled-destruction process.',
+    'Create chain-of-custody documentation templates, legal hold procedures, and malware sample sharing protocols.',
+    'Audit artefact handling compliance quarterly; track chain-of-custody completeness on all closed cases.',
+  ],
+  T8: [
+    'Deploy an internal knowledge base platform and begin populating it with TTP notes, past case summaries, and procedures.',
+    'Define the process for creating, reviewing, updating, and retiring knowledge base articles.',
+    'Create procedures for mapping cases to ATT&CK techniques, capturing lessons learned, and maintaining search quality.',
+    'Track knowledge base usage rates and article currency; conduct quarterly content accuracy audits.',
+  ],
+  T9: [
+    'Establish and publish a hotline or dedicated intake point with defined availability hours and a documented response SLA.',
+    'Define the process for hotline monitoring, call handling, and escalation to the on-call analyst.',
+    'Create procedures for after-hours coverage, hotline failover, and call transcript or logging requirements.',
+    'Track hotline uptime, call answer rates, and SLA compliance; review availability gaps monthly.',
+  ],
+  T10: [
+    'Launch an HTTPS website with CSIRT contact information, PGP key, service description, and at least one published advisory.',
+    'Define the process for keeping web content current, publishing advisories, and managing TLS certificate renewals.',
+    'Create procedures for advisory publication workflow, web content review cycles, and accessibility compliance checks.',
+    'Monitor website uptime, certificate expiry dates, and advisory publication frequency every month.',
+  ],
+  T11: [
+    'Compile a contact directory with named roles, phone numbers, and trust levels for all internal and external escalation points.',
+    'Define the process for maintaining, distributing, and periodically testing the accuracy of the contact directory.',
+    'Create procedures for quarterly contact verification, onboarding new contacts, and managing access to the directory.',
+    'Audit contact directory accuracy quarterly; track the percentage of contacts verified within the last 90 days.',
+  ],
+  T12: [
+    'Subscribe to at least one CTI feed (ISAC, national CERT, or MISP) and configure alerting for high-priority indicators.',
+    'Define the process for ingesting, triaging, and actioning CTI feed alerts within defined timeframes.',
+    'Create procedures for feed quality assessment, IOC enrichment, and distributing actionable intelligence to relevant teams.',
+    'Track CTI feed coverage, IOC actioning rates, and feed quality scores; review feed portfolio quarterly.',
+  ],
+  T13: [
+    'Begin recording key metrics per incident — volume, type, severity, and time-to-close — in a structured, consistent format.',
+    'Define a process for generating monthly and quarterly statistical reports from case data.',
+    'Create procedures for data validation before reporting, report approval, distribution lists, and long-term data retention.',
+    'Publish statistics reports on a fixed schedule; audit data completeness and accuracy every quarter.',
+  ],
+  T14: [
+    'Conduct an initial trend review of incident statistics and document the findings in a shared report.',
+    'Define a quarterly trend analysis process covering data sources, analysis steps, and the required output format.',
+    'Create procedures for translating trend findings into proactive advisories or awareness bulletins for the constituency.',
+    'Track whether trend-driven actions reduced incident frequency; measure trend-prediction accuracy quarterly.',
+  ],
+
+  P1: [
+    'Document the intake process: how reports are received, logged, acknowledged, and assigned a unique incident ID.',
+    'Define step-by-step intake procedures including SLA timers, notification templates, and analyst handoff steps.',
+    'Create detailed intake role assignments, escalation triggers, and standardised intake form templates.',
+    'Track acknowledgement SLA compliance and intake data quality metrics; audit process adherence monthly.',
+  ],
+  P2: [
+    'Define triage criteria (severity, impact, urgency) and document how incidents are prioritised and routed to handlers.',
+    'Define the triage process: who triages, within what timeframe, and how TLP classification is applied at intake.',
+    'Create triage decision trees, TLP application guides, and data minimisation checklists for sensitive incident data.',
+    'Track triage accuracy and mean time-to-triage; conduct monthly audits of triage decisions for consistency.',
+  ],
+  P3: [
+    'Document the analysis methodology, including use of kill-chain or ATT&CK framework for structuring investigations.',
+    'Define step-by-step analysis procedures covering evidence collection, hypothesis testing, and finding documentation.',
+    'Create analysis templates with ATT&CK TTP mapping fields, IOC extraction steps, and root-cause checklists.',
+    'Track analysis quality and time-to-analyse metrics; implement mandatory peer review for all major-case analyses.',
+  ],
+  P4: [
+    'Begin documenting remediation guidance for each incident and tracking whether constituents acted on recommendations.',
+    'Define the process for producing remediation recommendations, assigning follow-up owners, and tracking resolution.',
+    'Create remediation recommendation templates, constituent communication scripts, and resolution confirmation checklists.',
+    'Track time-to-remediate and constituent confirmation rates; review recommendation quality and completeness quarterly.',
+  ],
+  P5: [
+    'Define case closure criteria and create a closure checklist for case owners to complete before closing any incident.',
+    'Define the closure process including quality review steps, sign-off requirements, and archiving procedures.',
+    'Create detailed closure procedures with quality checks, constituent notification scripts, and archive labelling standards.',
+    'Track closure SLA compliance and case re-open rates; conduct monthly quality audits of closed case records.',
+  ],
+  P6: [
+    'Document crisis declaration criteria, a command structure, and key stakeholder communication contacts for major incidents.',
+    'Define the crisis management process including activation steps, command roles, and communication cadence.',
+    'Create crisis playbooks with decision trees, stakeholder scripts, and media and legal coordination procedures.',
+    'Conduct annual tabletop exercises; track crisis activation time and stakeholder notification compliance rates.',
+  ],
+  P7: [
+    'Publish a coordinated vulnerability disclosure (CVD) policy and assign a named vulnerability handling owner.',
+    'Define the vulnerability handling process: intake, analysis, vendor coordination, and disclosure timeline.',
+    'Create CVD procedures with CVSS scoring steps, vendor notification templates, and public disclosure scripts.',
+    'Track time-to-disclose and vendor response rates; audit CVD compliance against the published policy annually.',
+  ],
+  P8: [
+    'Create an advisory template and define the approval chain required before publishing security alerts to the constituency.',
+    'Define the advisory production process: trigger criteria, drafting steps, review, approval, and distribution method.',
+    'Create step-by-step advisory procedures with TLP selection guides, quality checks, and mailing list management.',
+    'Track advisory timeliness (time from threat detection to publication) and constituency feedback scores monthly.',
+  ],
+  P9: [
+    'Begin regularly reviewing threat-intelligence feeds and document findings in a situational awareness (SA) report.',
+    'Define a process for monitoring the threat landscape, escalating critical findings, and sharing SA updates.',
+    'Create SA procedures for dark-web monitoring, cross-CSIRT information sharing, and regular SA report production.',
+    'Track SA report timeliness and accuracy; measure the number of proactive actions taken from SA-derived findings.',
+  ],
+  P10: [
+    'Define SLAs for key CSIRT services and begin tracking performance against them on a monthly basis.',
+    'Define a quality review process including peer review of major cases and regular SLA attainment reporting.',
+    'Create quality procedures with case review criteria, constituent satisfaction survey templates, and improvement workflows.',
+    'Track SLA attainment, satisfaction scores, and improvement action completion rates on a quarterly basis.',
+  ],
+  P11: [
+    'Conduct a post-incident review for all major incidents and record findings and action items in a shared document.',
+    'Define the lessons-learned process: review scheduling, facilitation steps, and action assignment to owners.',
+    'Create post-incident review templates, action tracking procedures, and an improvement backlog management workflow.',
+    'Track lessons-learned action completion rates; audit whether process changes measurably improved incident outcomes.',
+  ],
+};
+
+export const PRIORITY_CONFIG = {
+  0: { label: 'Critical', color: '#ef4444', bg: '#fef2f2' },
+  1: { label: 'High',     color: '#f97316', bg: '#fff7ed' },
+  2: { label: 'Medium',   color: '#eab308', bg: '#fefce8' },
+  3: { label: 'Low',      color: '#3b82f6', bg: '#eff6ff' },
+  4: { label: 'Complete', color: '#22c55e', bg: '#f0fdf4' },
+};
