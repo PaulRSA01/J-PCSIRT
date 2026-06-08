@@ -24,7 +24,7 @@ function ScoreGauge({ pct, label, color }) {
   );
 }
 
-export default function Reports({ incidents, assessment }) {
+export default function Reports({ incidents, assessment, record }) {
   const scores = useMemo(() => computeScores(assessment), [assessment]);
 
   const radarData = GROUPS.map(g => ({ group: g.label, score: scores[g.key]?.pct ?? 0 }));
@@ -57,10 +57,23 @@ export default function Reports({ incidents, assessment }) {
     : 0;
 
   const exportJSON = () => {
-    const data = { exportedAt: new Date().toISOString(), sim3Scores: scores, assessment, incidents };
+    const data = {
+      exportedAt: new Date().toISOString(),
+      company: record?.companyName ?? 'Unknown',
+      auditor: record?.auditorName ?? '',
+      status: record?.status ?? 'unknown',
+      sim3Scores: scores,
+      assessment,
+      incidents,
+    };
     const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = 'csirt-report.json'; a.click();
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = record
+      ? `csirt-report-${record.companyName.replace(/\s+/g, '-').toLowerCase()}.json`
+      : 'csirt-report.json';
+    a.click();
     URL.revokeObjectURL(url);
   };
 
@@ -69,7 +82,11 @@ export default function Reports({ incidents, assessment }) {
       <div className="page-header">
         <div>
           <h1 className="page-title">Reports & Analytics</h1>
-          <p className="page-sub">SIM3 maturity analysis and incident trend reporting.</p>
+          <p className="page-sub">
+            {record
+              ? `${record.companyName}${record.auditorName ? ` · Auditor: ${record.auditorName}` : ''}`
+              : 'SIM3 maturity analysis and incident trend reporting.'}
+          </p>
         </div>
         <button className="btn-primary" onClick={exportJSON}>Export JSON</button>
       </div>

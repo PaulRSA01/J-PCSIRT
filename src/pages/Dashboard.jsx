@@ -22,7 +22,7 @@ function StatCard({ icon: Icon, label, value, sub, color }) {
   );
 }
 
-export default function Dashboard({ incidents, assessment }) {
+export default function Dashboard({ incidents, assessment, companyName }) {
   const scores = useMemo(() => computeScores(assessment), [assessment]);
 
   const radarData = GROUPS.map(g => ({
@@ -60,7 +60,11 @@ export default function Dashboard({ incidents, assessment }) {
   return (
     <div className="page">
       <h1 className="page-title">CSIRT Dashboard</h1>
-      <p className="page-sub">Security Incident Management Maturity Model (SIM3) — Operational Overview</p>
+      <p className="page-sub">
+        {companyName
+          ? `SIM3 maturity overview for ${companyName}`
+          : 'Security Incident Management Maturity Model (SIM3) — Operational Overview'}
+      </p>
 
       {/* KPI row */}
       <div className="stats-grid">
